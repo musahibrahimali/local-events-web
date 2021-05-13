@@ -1,10 +1,15 @@
 import React from 'react';
 import './Pages.css';
+import { HeroSection, Events } from '../index';
 
 export default function Home() {
   return (
     <>
-      <h1 className='home'>EPIC</h1>
+      <div className="wrapper">
+        <HeroSection />
+        <Events />
+
+      </div>
     </>
   );
 }

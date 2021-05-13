@@ -1,12 +1,5 @@
-.home {
-    display: flex;
-    height: 90vh;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    background-image: url('../../assets/images/img-1.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }

@@ -28,38 +28,39 @@ function Navbar() {
 
   return (
     <>
-      <nav className='navbar'>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          Smart Events
-          <i class='fab fa-firstdraft' />
-        </Link>
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+      <div className="nav-wrapper">
+        <nav className='navbar'>
+          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            Smart Events<i class='fab fa-firstdraft' />
+          </Link>
+          <div className='menu-icon' onClick={handleClick}>
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          </div>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
 
-          {
-            MenuItems.map((item, index) => {
-              if (item.title.toLowerCase() === 'host event') {
-                return (
-                  <li className='nav-item' key={index} onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}>
-                    <Link className={item.cName} to={item.url} onClick={closeMobileMenu}>{item.title} <i className='fas fa-caret-down' /> </Link>
-                    {dropdown && <Dropdown />}
-                  </li>
-                );
-              } else {
-                return (
-                  <li className='nav-item' key={index}>
-                    <Link className={item.cName} to={item.url} onClick={closeMobileMenu}>{item.title}</Link>
-                  </li>
-                );
-              }
-            })
-          }
-        </ul>
-        <Button className>Sign Up</Button>
-      </nav>
+            {
+              MenuItems.map((item, index) => {
+                if (item.title.toLowerCase() === 'host event') {
+                  return (
+                    <li className='nav-item' key={index} onMouseEnter={onMouseEnter}
+                      onMouseLeave={onMouseLeave}>
+                      <Link className={item.cName} to={item.url} onClick={closeMobileMenu}>{item.title} <i className='fas fa-caret-down' /> </Link>
+                      {dropdown && <Dropdown />}
+                    </li>
+                  );
+                } else {
+                  return (
+                    <li className='nav-item' key={index}>
+                      <Link className={item.cName} to={item.url} onClick={closeMobileMenu}>{item.title}</Link>
+                    </li>
+                  );
+                }
+              })
+            }
+          </ul>
+          <Button>Sign In</Button>
+        </nav>
+      </div>
     </>
   );
 }

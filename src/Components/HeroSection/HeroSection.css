@@ -1,0 +1,101 @@
+.hero-section {
+    background: url('../../assets//images/img-2.jpg') center center/cover no-repeat;
+    height: 80vh;
+    padding: 8px 20px;
+    text-align: center;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+
+.video {
+    height: 80vh;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+
+.banner {
+    background: linear-gradient(90deg, rgba(247, 105, 43, 1) 0%, rgba(252, 132, 69, 1) 100%);
+    height: 180px;
+    padding: 8px 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.banner-title {
+    color: #fff;
+    font-size: 2.5rem;
+    padding: 5px;
+}
+
+.banner-text {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.hero-deco {
+    background: linear-gradient(90deg, rgba(250, 250, 250, 1) 0%, rgba(240, 240, 240, 0.9591266556291391) 100%);
+    height: 40vh;
+    width: 100%;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-graphics {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-image: url('../../assets/images/img-1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 8px 20px;
+}
+
+.banner-graphics>h1 {
+    margin-bottom: 15px;
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 960px) {
+    .hero-deco {
+        display: flex;
+        flex-direction: column;
+    }
+    .banner-graphics {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .banner-title {
+        font-size: 1.5rem;
+    }
+    .banner-text {
+        font-size: 1rem;
+    }
+}

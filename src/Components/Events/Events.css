@@ -1,0 +1,33 @@
+.events-component {
+    height: 30vh;
+    background: linear-gradient(90deg, rgb(214, 214, 214) 0%, rgb(214, 214, 214) 100%);
+    padding: 10px 20px;
+}
+
+.event-menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    width: 100vw;
+    justify-content: start;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.event-links {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+}
+
+.event-links:hover {
+    background-color: #b6081f;
+    color: #fff;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}

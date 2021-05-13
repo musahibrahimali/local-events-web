@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { Button } from '../index';
+import { Button, Home } from '../index';
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -96,19 +96,11 @@ function Footer() {
                         </Link>
                         <Link
                             class='social-icon-link twitter'
-                            to='/'
+                            to={Home}
                             target='_blank'
                             aria-label='Twitter'
                         >
                             <i class='fab fa-twitter' />
-                        </Link>
-                        <Link
-                            class='social-icon-link twitter'
-                            to='/'
-                            target='_blank'
-                            aria-label='LinkedIn'
-                        >
-                            <i class='fab fa-linkedin' />
                         </Link>
                     </div>
                 </div>

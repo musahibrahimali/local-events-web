@@ -1,6 +1,5 @@
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { NavBar, Home, Help, HostEvent, Resources, Pricing, CreateEvent, WhySmartEvents, SignUp, SignIn, Footer } from '../Components/index';
-import './App.css';
 
 function App() {
   return (

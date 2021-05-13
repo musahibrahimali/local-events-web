@@ -1,8 +1,13 @@
+/// widgets
 export { default as NavBar } from './NavBar/Navbar';
 export { default as Button } from './Button/Button';
 export { default as MenuItems } from './Menu/MenuItems';
 export { default as Dropdown } from './DropDown/Dropdown';
 
+/// components
+export { default as HeroSection } from './HeroSection/HeroSection';
+export { default as SearchBar } from './SearchBar/SearchBar';
+export { default as Events } from './Events/Events';
 
 /// pages
 export { default as Home } from './Pages/Home';
