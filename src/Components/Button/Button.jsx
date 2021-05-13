@@ -9,7 +9,7 @@ const STYLES = [
 const SIZES = [
   'btn--medium',
   'btn--large',
-]
+];
 
 const Button = ({
   children,
