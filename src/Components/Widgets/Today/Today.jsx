@@ -3,9 +3,11 @@ import './Today.css';
 
 function Today() {
     return (
-        <div>
+        <>
+            <div className="today-events-container">
 
-        </div>
+            </div>
+        </>
     )
 }
 

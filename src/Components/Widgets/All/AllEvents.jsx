@@ -1,10 +1,13 @@
 import React from 'react';
+import './AllEvents.css';
 
 function AllEvents() {
     return (
-        <div>
+        <>
+            <div className="all-events-container">
 
-        </div>
+            </div>
+        </>
     )
 }
 

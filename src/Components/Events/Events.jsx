@@ -1,23 +1,22 @@
-import React from 'react';
-import './Events.css';
+import { React } from 'react';
 import { Link } from 'react-router-dom';
-import './Events.css';
 import { SearchBar } from '../index';
 import EventItems from './EventItem';
+import './Events.css';
 
 function Events() {
     return (
         <>
             <div className="events-wrapper">
-                <SearchBar />
                 <div className="events-component">
-                    <nav className="">
+                    <SearchBar />
+                    <nav className="navigation">
                         <ul className="event-menu">
                             {
                                 EventItems.map((item, index) => {
                                     return (
                                         <li className="event-item" key={index}>
-                                            <Link to={item.url} className={item.cName}>{item.title}</Link>
+                                            <Link className={item.cName}>{item.title}</Link>
                                         </li>
                                     );
                                 })

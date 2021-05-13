@@ -13,8 +13,6 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky;
-  top: 0;
 }
 
 .navbar-logo {
@@ -59,6 +57,11 @@
   background-color: #b6081f;
   border-radius: 4px;
   transition: all 0.2s ease-out;
+}
+
+.sign-in-text {
+  text-align: center;
+  text-decoration: none;
 }
 
 .fa-bars {

@@ -1,10 +1,16 @@
 import React from 'react';
+import { NavBar, Footer, } from '../index';
 
 function CreateEvent() {
     return (
-        <div>
+        <>
+            <NavBar />
+            <div className="wrapper">
 
-        </div>
+
+            </div>
+            <Footer />
+        </>
     )
 }
 

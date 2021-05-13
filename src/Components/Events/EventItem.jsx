@@ -10,14 +10,9 @@ const EventItems = [
         url: "/today-events",
     },
     {
-        title: "For You",
-        cName: "event-links",
-        url: "/for-you-events",
-    },
-    {
         title: "Weekend",
         cName: "event-links",
-        url: "/all-events",
+        url: "/weekend-events",
     },
     {
         title: "Party",
@@ -35,9 +30,19 @@ const EventItems = [
         url: "/funeral-events",
     },
     {
+        title: "Festivals",
+        cName: "event-links",
+        url: "/festival-events",
+    },
+    {
         title: "Conference",
         cName: "event-links",
         url: "/conference-events",
+    },
+    {
+        title: "Music",
+        cName: "event-links",
+        url: "/music-events",
     },
     {
         title: "Education",
