@@ -2,7 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { NavBar, Footer, HeroSection, Events } from '../index';
 import {
-  AllEvents, Conference, Education, Festival, FreeEvents, Funeral, Health, MusicEvents, Party, Today, Wedding, WeekEnd,
+  AllEvents,
+  Conference,
+  Education,
+  Festival,
+  FreeEvents,
+  Funeral,
+  Health,
+  MusicEvents,
+  Party,
+  Today,
+  Wedding,
+  WeekEnd,
 } from '../Widgets/WidgetExport';
 import './Pages.css';
 

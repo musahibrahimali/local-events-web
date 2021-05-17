@@ -17,8 +17,11 @@ export { default as HostEvent } from './Pages/HostEvent';
 export { default as Resources } from './Pages/Resources';
 export { default as CreateEvent } from './Pages/CreateEvent';
 export { default as Pricing } from './Pages/Pricing';
-export { default as SignIn } from './Pages/SignIn';
-export { default as SignUp } from './Pages/SignUp';
+
+/// log in and register
+export { default as LogLanding } from './Login/Landing';
+export { default as SignIn } from './Login/SignIn';
+export { default as SignUp } from './Login/SignUp';
 
 /// Footer
 export { default as Footer } from './Footer/Footer';

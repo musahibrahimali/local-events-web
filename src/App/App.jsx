@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import { Home, Help, HostEvent, Resources, Pricing, CreateEvent, WhySmartEvents, SignUp, SignIn } from '../Components/index';
+import { Home, LogLanding, Help, HostEvent, Resources, Pricing, CreateEvent, WhySmartEvents,} from '../Components/index';
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
             <Route path='/create-event' exact component={CreateEvent} />
             <Route path='/pricing' exact component={Pricing} />
             <Route path='/resources' exact component={Resources} />
-            <Route path='/sign-in' exact component={SignIn} />
-            <Route path='/sign-up' exact component={SignUp} />
+            <Route path='/sign-in' exact component={LogLanding} />
+            <Route path='/sign-up' exact component={LogLanding} />
           </Switch>
         </Router>
       </div>

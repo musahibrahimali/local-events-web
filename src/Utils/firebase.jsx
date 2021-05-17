@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 
 /// firebase config
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyBzcdepLpe1chm-HbQM0XUP8V5a2w9921o",
     authDomain: "smart-events-deepseeinc.firebaseapp.com",
     projectId: "smart-events-deepseeinc",

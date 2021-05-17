@@ -58,7 +58,7 @@ function Navbar() {
               })
             }
           </ul>
-          <Link to="/sign-in" >
+          <Link to="/sign-in" className="sign-in-btn" >
             <Button>Sign In</Button>
           </Link>
         </nav>

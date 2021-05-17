@@ -144,7 +144,7 @@
     color: #b6081f;
     transition: 250ms;
   }
-  button {
+  .sign-in-btn {
     display: none;
   }
 }
