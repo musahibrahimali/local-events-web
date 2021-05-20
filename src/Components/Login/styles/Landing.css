@@ -42,7 +42,6 @@
     justify-content: center;
     height: 90%;
     background-color: rgba(247, 98, 60, 1);
-    /*background-color: #3498db;*/
     width: 100%;
     position: absolute;
     right: -34%;
@@ -51,6 +50,14 @@
     transition: all 400ms ease-in-out;
     cursor: pointer;
     box-shadow: 0 0 12px 2px rgba(15, 15, 15, 0.281);
+}
+
+.header > h2{
+    color: rgba(247, 98, 60, 1);
+}
+
+.form-label{
+    color: rgba(247, 98, 60, 1);
 }
 
 .login .right-side.right {
@@ -82,6 +89,7 @@
 .btn-log {
     font-size: 21px;
     padding: 5px 20px;
+    text-decoration: none;
     border: 0;
     background-color: rgba(247, 98, 60, 1);
     color: #fff;
@@ -96,6 +104,11 @@
 
 .btn-log:focus {
     outline: none;
+}
+
+.error-message {
+    color: #b6081f;
+    margin-top: 0;
 }
 
 @media screen and (max-width: 480px){

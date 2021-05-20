@@ -1,0 +1,30 @@
+.user-drop-menu {
+    background: rgba(247, 105, 43, 1);
+    width: 200px;
+    position: absolute;
+    top: 80px;
+    list-style: none;
+    text-align: start;
+}
+
+.user-drop-menu li {
+    background: rgba(247, 105, 43, 1);
+    cursor: pointer;
+}
+
+.user-drop-menu li:hover {
+    background: #b6081f;
+}
+
+.user-drop-menu.clicked-one {
+    display: none;
+}
+
+.user-info-link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    padding: 16px;
+}

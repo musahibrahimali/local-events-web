@@ -16,7 +16,6 @@
   transition: all 0.3s ease-out;
   background: #fff;
   color: #b6081f;
-  transition: 250ms;
 }
 
 .btn--primary {
@@ -48,7 +47,7 @@
 
 .btn--primary:hover, .btn--outline:hover {
   background-color: var(--primary);
-  color: var(--text-color);
+  color: #ffffff;
   transition: all 0.3s ease-out;
 }
 

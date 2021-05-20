@@ -1,4 +1,15 @@
 export { default as Image1 } from './images/img-1.jpg';
+export { default as Image2 } from './images/img-2.jpg';
+export { default as Image3 } from './images/img-3.jpg';
+export { default as Image4 } from './images/img-4.jpg';
+export { default as Image5 } from './images/img-5.jpg';
+export { default as Image6 } from './images/img-6.jpg';
+export { default as Image7 } from './images/img-7.jpg';
+export { default as Image8 } from './images/1.jpg';
+export { default as Image9 } from './images/2.jpg';
+export { default as Image10 } from './images/3.jpg';
+export { default as Image11 } from './images/4.jpg';
+export { default as Image12 } from './images/5.jpg';
 export {default as loginImage} from './images/login.svg';
 export { default as Video1 } from './videos/video-1.mp4';
 export { default as Video2 } from './videos/video-2.mp4';

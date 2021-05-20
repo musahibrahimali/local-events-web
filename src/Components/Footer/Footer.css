@@ -1,3 +1,10 @@
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .footer-container {
     /* background-color: #242424; */
     background: linear-gradient(90deg, rgba(247, 105, 43, 1) 0%, rgba(252, 132, 69, 1) 100%);
@@ -6,6 +13,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.logo-icon{
+    color: #fff;
+    cursor: pointer;
 }
 
 .footer-subscription {

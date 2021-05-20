@@ -1,70 +1,134 @@
-import React, { useState } from 'react';
-import { Button, Dropdown, MenuItems } from '../index';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import React, {useContext, useState} from 'react';
+import {Link} from 'react-router-dom';
+import {Button, Dropdown, MenuItems, SearchBar} from '../index';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import FiberSmartRecordIcon from '@material-ui/icons/FiberSmartRecord';
+import {IconButton} from "@material-ui/core";
+import {UserContext} from "../../Provider/UserProvider";
+import './styles/Navbar.css';
+
 
 function Navbar() {
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+    const user = useContext(UserContext);
+    const [click, setClick] = useState(false);
+    const [dropdown, setDropdown] = useState(false);
+    const handleClick = () => setClick(!click);
+    const closeMobileMenu = () => setClick(false);
 
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+    const styles = {
+        largeIcon: {
+            width: 120,
+            height: 120,
+        },
 
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
+        mediumIcon: {
+            width: 60,
+            height: 60,
+        },
+
+    };
+
+    const handleUserIconClick = () => {
+
     }
-  };
 
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
 
-  return (
-    <>
-      <div className="nav-wrapper">
-        <nav className='navbar'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            Smart Events<i class='fab fa-firstdraft' />
-          </Link>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-          </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+    const onMouseEnter = () => {
+        if (window.innerWidth < 960) {
+            setDropdown(false);
+        } else {
+            setDropdown(true);
+        }
+    };
 
-            {
-              MenuItems.map((item, index) => {
-                if (item.title.toLowerCase() === 'host event') {
-                  return (
-                    <li className='nav-item' key={index} onMouseEnter={onMouseEnter}
-                      onMouseLeave={onMouseLeave}>
-                      <Link className={item.cName} to={item.url} onClick={closeMobileMenu}>{item.title} <i className='fas fa-caret-down' /> </Link>
-                      {dropdown && <Dropdown />}
-                    </li>
-                  );
-                } else {
-                  return (
-                    <li className='nav-item' key={index}>
-                      <Link className={item.cName} to={item.url} onClick={closeMobileMenu}>{item.title}</Link>
-                    </li>
-                  );
-                }
-              })
-            }
-          </ul>
-          <Link to="/sign-in" className="sign-in-btn" >
-            <Button>Sign In</Button>
-          </Link>
-        </nav>
-      </div>
-    </>
-  );
+
+    const onMouseLeave = () => {
+        if (window.innerWidth < 960) {
+            setDropdown(false);
+        } else {
+            setDropdown(false);
+        }
+    };
+
+    return (
+        <>
+            <div>
+                <nav className='navbar'>
+                    <div>
+                        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+                            Smart Events <FiberSmartRecordIcon className="logo-icon" />
+                        </Link>
+                    </div>
+                    <SearchBar />
+                    <div className='menu-icon' onClick={handleClick}>
+                        <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
+                    </div>
+                    <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+
+                        {
+                            MenuItems.map((item, index) => {
+                                if (item.title.toLowerCase() === 'host event') {
+                                    return (
+                                        <li className='nav-item' key={index} onMouseEnter={onMouseEnter}
+                                            onMouseLeave={onMouseLeave}>
+                                            <Link className={item.cName} to={item.url}
+                                                  onClick={closeMobileMenu}>{item.title} <i
+                                                className='fas fa-caret-down'/> </Link>
+                                            {dropdown && <Dropdown/>}
+                                        </li>
+                                    );
+                                }
+
+                                else if (item.cName.toLowerCase() === 'nav-links-mobile') {
+                                    return (
+                                        <li className='nav-item' key={index} >
+                                            <Link
+                                                className={item.cName}
+                                                to={user ? "/profile" : item.url}
+                                                onClick={closeMobileMenu}
+                                            >
+                                                {user ? "Profile" : item.title}
+                                                <i className='fas fa-caret-down'/>
+                                            </Link>
+                                        </li>
+                                    );
+                                }
+
+                                else {
+                                    return (
+                                        <li className='nav-item' key={index}>
+                                            <Link className={item.cName} to={item.url}
+                                                  onClick={closeMobileMenu}>{item.title}</Link>
+                                        </li>
+                                    );
+                                }
+                            })
+                        }
+                    </ul>
+                    <div className="sign-user">
+                        {
+                            user ?
+                                <div>
+                                    <div className="user-icon-container">
+                                        <IconButton iconStyle={styles.largeIcon} onClick={handleUserIconClick}>
+                                            <AccountCircleIcon className="user-icon" />
+                                        </IconButton>
+                                    </div>
+                                    <div className="user-info-container">
+
+                                    </div>
+                                </div>
+                                :
+                                <Link to="/sign-in" className="sign-in-btn">
+                                    <Button>Sign In</Button>
+                                </Link>
+                        }
+                    </div>
+
+                </nav>
+            </div>
+        </>
+    );
 }
 
 export default Navbar;

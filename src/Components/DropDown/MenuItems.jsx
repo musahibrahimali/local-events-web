@@ -1,6 +1,6 @@
 export const MenuItems = [
   {
-    title: 'White Smart Events',
+    title: 'Why Smart Events',
     path: '/why-smart-events',
     cName: 'dropdown-link'
   },
@@ -10,7 +10,7 @@ export const MenuItems = [
     cName: 'dropdown-link'
   },
   {
-    title: 'Resouces',
+    title: 'Resources',
     path: '/resources',
     cName: 'dropdown-link'
   },
