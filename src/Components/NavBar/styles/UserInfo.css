@@ -2,7 +2,8 @@
     background: rgba(247, 105, 43, 1);
     width: 200px;
     position: absolute;
-    top: 80px;
+    top: 100px;
+    right: 0px;
     list-style: none;
     text-align: start;
 }

@@ -1,6 +1,6 @@
 import React, {createContext, useEffect, useState} from "react";
 import {authentication} from "../Utils/firebase";
-import Loader from "./Loader";
+import {LoadAnimation} from "../Components";
 
 export const UserContext = createContext({user: null});
 
@@ -18,7 +18,7 @@ function UserProvider({children}){
     if(pending){
         return (
             <>
-                <Loader/>
+                <LoadAnimation />
             </>
         )
     }

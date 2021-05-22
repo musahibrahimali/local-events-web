@@ -1,33 +1,32 @@
-import React, {useState} from 'react';
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import {Link, useHistory} from "react-router-dom";
 import {UserInfoItem} from "./UserInfoItem";
 import './styles/UserInfo.css';
+import {authentication} from "../../Utils/firebase";
+import LoadAnimation from "../LoadAnimation/LoadAnimation";
 
 function UserInfo(){
 
-    const [click, setClick] = useState(false);
+    let browserHistory = useHistory();
+    const [loading, setLoading] = useState(false);
 
-    const handleClick = () => setClick(!click);
+    const handleLogOut = async () => {
+        setLoading(true);
+       await authentication.signOut();
+       browserHistory.push('/');
+    }
 
     return(
         <>
-            <ul
-                onClick={handleClick}
-                className={click ? 'user-drop-menu clicked-one' : 'user-drop-menu'}
-            >
-                {UserInfoItem.map((item, index) => {
-                    return (
-                        <li key={index}>
-                            <Link
-                                className={item.cName}
-                                to={item.path}
-                                onClick={() => setClick(false)}
-                            >
-                                {item.title}
-                            </Link>
-                        </li>
-                    );
-                })}
+            { loading && <LoadAnimation /> }
+            <ul className='user-drop-menu'>
+                <li><Link to="/profile-page" className="user-info-link">Profile</Link></li>
+
+                <li><Link to="/my-events" className="user-info-link">My Events</Link></li>
+
+                <li  onClick={handleLogOut}>
+                    <Link className="user-info-link">log out</Link>
+                </li>
             </ul>
         </>
     );

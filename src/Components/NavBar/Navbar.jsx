@@ -6,12 +6,14 @@ import FiberSmartRecordIcon from '@material-ui/icons/FiberSmartRecord';
 import {IconButton} from "@material-ui/core";
 import {UserContext} from "../../Provider/UserProvider";
 import './styles/Navbar.css';
+import UserInfo from "./UserInfo";
 
 
 function Navbar() {
     const user = useContext(UserContext);
     const [click, setClick] = useState(false);
     const [dropdown, setDropdown] = useState(false);
+    const [userDropdown, setUserDropdown] = useState(false);
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
@@ -31,6 +33,22 @@ function Navbar() {
     const handleUserIconClick = () => {
 
     }
+
+    const onUserMouseEnter = () => {
+        if (window.innerWidth < 960) {
+            setUserDropdown(false);
+        } else {
+            setUserDropdown(true);
+        }
+    };
+
+    const onUserMouseLeave = () => {
+        if (window.innerWidth < 960) {
+            setUserDropdown(false);
+        } else {
+            setUserDropdown(false);
+        }
+    };
 
 
     const onMouseEnter = () => {
@@ -108,14 +126,17 @@ function Navbar() {
                     <div className="sign-user">
                         {
                             user ?
-                                <div>
-                                    <div className="user-icon-container">
-                                        <IconButton iconStyle={styles.largeIcon} onClick={handleUserIconClick}>
-                                            <AccountCircleIcon className="user-icon" />
-                                        </IconButton>
-                                    </div>
-                                    <div className="user-info-container">
-
+                                <div className="user-icon-container">
+                                    <div
+                                        className="nav-item"
+                                        onMouseEnter={onUserMouseEnter}
+                                        onMouseLeave={onUserMouseLeave}
+                                    >
+                                        <AccountCircleIcon
+                                            className="user-icon"
+                                            onClick={handleUserIconClick}
+                                        />
+                                        {userDropdown && <UserInfo/>}
                                     </div>
                                 </div>
                                 :

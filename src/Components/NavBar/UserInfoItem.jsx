@@ -8,7 +8,7 @@ export const UserInfoItem = [
         path: '/my-events-page',
         cName: 'user-info-link'
     },{
-        title: 'logout',
+        title: 'log out',
         path: '/',
         cName: 'user-info-link'
     },

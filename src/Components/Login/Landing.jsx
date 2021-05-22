@@ -1,12 +1,13 @@
 import React, {useCallback, useState} from 'react';
 import {useHistory} from 'react-router-dom';
-import {Footer, SignIn, SignUp} from "../index";
+import {Footer, LoadAnimation, SignIn, SignUp} from "../index";
 import {authentication, database } from "../../Utils/firebase";
 import './styles/Landing.css';
 
 function LogLanding () {
     /* react hooks */
     let browserHistory = useHistory();
+    const [loading, setLoading] = useState(false);
     const [logIn, setLogIn] = useState(true);
     const [displayName, setDisplayName] = useState('');
     const [displayNameError, setDisplayNameError] = useState('');
@@ -43,6 +44,7 @@ function LogLanding () {
         async (event) => {
             event.preventDefault();
             clearError();
+            setLoading(true);
             await authentication
                 .signInWithEmailAndPassword(email, password)
                 .then(
@@ -51,15 +53,19 @@ function LogLanding () {
                 .catch((error) => {
                     switch (error.code){
                         case "auth/invalid-email":
+                            setLoading(false);
                             setEmailError("Invalid Email");
                             break;
                         case "auth/user-disabled":
+                            setLoading(false);
                             setEmailError("Account has been disabled");
                             break;
                         case "auth/user-not-found":
+                            setLoading(false);
                             setEmailError("User not found");
                             break;
                         case "auth/wrong-password":
+                            setLoading(false);
                             setPasswordError("Invalid password");
                             break;
                         default:
@@ -77,17 +83,21 @@ function LogLanding () {
         async (event) => {
             event.preventDefault();
             clearError();
+            setLoading(true);
             const user = await authentication
                 .createUserWithEmailAndPassword(email, password)
                 .catch((error) => {
                     switch (error.code){
                         case "auth/invalid-email":
+                            setLoading(false);
                             setEmailError("Invalid Email");
                             break;
                         case "auth/email-already-in-use":
+                            setLoading(false);
                             setEmailError("Email in use by another account");
                             break;
                         case "auth/weak-password":
+                            setLoading(false);
                             setPasswordError("Password must be at least 6 characters");
                             break;
                         default:
@@ -111,6 +121,7 @@ function LogLanding () {
     return (
         <>
             <div className="App">
+                {loading && <LoadAnimation /> }
                 <div className="login">
                     <div className="container">
                         {logIn && (
