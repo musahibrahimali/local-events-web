@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {EventCard} from "../WidgetExport";
 import {Image1, Image3, Image4, Image5, Image6} from "../../../assets/AssetExport";
-import './AllEvents.css';
 import {database} from "../../../Utils/firebase";
+import './AllEvents.css';
 
-function AllEvents() {
+function AllEvents({title}) {
     const [loading, setLoading] = useState(true);
 
     const handleLoading = () => setLoading(false);
@@ -26,6 +26,9 @@ function AllEvents() {
 
     return (
         <>
+            <div className="section-title">
+                <h2> {title}</h2>
+            </div>
             <div className="all-events-container">
 
                 <EventCard

@@ -1,47 +1,94 @@
-import React from 'react';
-import './Popular.css';
+import React, {useEffect, useState} from 'react';
+import Slider from "react-slick";
 import {EventCard} from "../WidgetExport";
+import {SliderSettings} from "../Settings/SliderSettins";
 import {Image1, Image3, Image4, Image5, Image6} from "../../../assets/AssetExport";
+import {database} from "../../../Utils/firebase";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './Popular.css';
 
-function Popular() {
+function Popular({title}) {
+
+    const [loading, setLoading] = useState(true);
+
+    const handleLoading = () => setLoading(false);
+
+    useEffect(() => {
+        const fetData = async () => {
+            try {
+                const {data} = await database.ref('users').get();
+                if (!data){
+                    handleLoading();
+                }
+            }catch (e) {
+                console.log(e);
+            }
+
+        }
+        fetData().then(results => {console.log(results)});
+    }, []);
+
+    const data = [
+        <EventCard
+            loading={loading}
+            imgSrc={Image3}
+            eventTitle="Music Festival"
+            eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            eventDate="20th May 2021, Thursday, 14:00 GMT"
+        />,
+
+        <EventCard
+            loading={loading}
+            imgSrc={Image4}
+            eventTitle="Music Festival"
+            eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            eventDate="20th May 2021, Thursday, 14:00 GMT"
+        />,
+
+        <EventCard
+            loading={loading}
+            imgSrc={Image5}
+            eventTitle="Music Festival"
+            eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            eventDate="20th May 2021, Thursday, 14:00 GMT"
+        />,
+
+        <EventCard
+            loading={loading}
+            imgSrc={Image6}
+            eventTitle="Music Festival"
+            eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            eventDate="20th May 2021, Thursday, 14:00 GMT"
+        />,
+
+        <EventCard
+            loading={loading}
+            imgSrc={Image1}
+            eventTitle="Music Festival"
+            eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            eventDate="20th May 2021, Thursday, 14:00 GMT"
+        />
+    ];
+
     return (
-        <div className="popular-events-container">
-            <EventCard
-                imgSrc={Image3}
-                eventTitle="Popular Events"
-                eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                eventDate="20th May 2021, Thursday, 14:00 GMT"
-            />
-
-            <EventCard
-                imgSrc={Image4}
-                eventTitle="Popular Events"
-                eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                eventDate="20th May 2021, Thursday, 14:00 GMT"
-            />
-
-            <EventCard
-                imgSrc={Image5}
-                eventTitle="Popular Events"
-                eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                eventDate="20th May 2021, Thursday, 14:00 GMT"
-            />
-
-            <EventCard
-                imgSrc={Image6}
-                eventTitle="Popular Events"
-                eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                eventDate="20th May 2021, Thursday, 14:00 GMT"
-            />
-
-            <EventCard
-                imgSrc={Image1}
-                eventTitle="Popular Events"
-                eventDescription="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                eventDate="20th May 2021, Thursday, 14:00 GMT"
-            />
-        </div>
-    )
+        <>
+            <div className="section-title">
+                <h2> {title} </h2>
+            </div>
+            <div className="slider-container">
+                <Slider {...SliderSettings}>
+                    {
+                        data.map((item, index) => {
+                            return(
+                                <div key={Date.now()}>{item}</div>
+                            );
+                        })
+                    }
+                </Slider>
+            </div>
+        </>
+    );
 }
 
 export default Popular;

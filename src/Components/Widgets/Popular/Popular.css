@@ -1,8 +1,16 @@
-.popular-events-container {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: auto auto auto;
+.slider-container {
     height: auto;
-    background-color: #ffffff;
+    width: auto;
     padding: 10px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #000116;
+}
+
+.section-title{
+    padding: 15px;
+    color: #b6081f;
+    font-size: 22px;
 }

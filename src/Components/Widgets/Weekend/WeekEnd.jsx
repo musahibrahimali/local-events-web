@@ -4,7 +4,7 @@ import {EventCard} from "../WidgetExport";
 import {Image1, Image3, Image4, Image5, Image6} from "../../../assets/AssetExport";
 import {database} from "../../../Utils/firebase";
 
-function WeekEnd() {
+function WeekEnd({title}) {
 
     const [loading, setLoading] = useState(true);
 
@@ -26,7 +26,11 @@ function WeekEnd() {
     }, []);
 
     return (
-        <div className="week-end-events-container">
+        <>
+            <div className="section-title">
+                <h2> {title}</h2>
+            </div>
+            <div className="week-end-events-container">
 
             <EventCard
                 loading={loading}
@@ -68,6 +72,7 @@ function WeekEnd() {
                 eventDate="20th May 2021, Thursday, 14:00 GMT"
             />
         </div>
+        </>
     )
 }
 

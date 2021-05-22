@@ -18,28 +18,28 @@ function LogLanding () {
 
     /* Functions */
 
-    // clear all inputs
+    /* clear all inputs */
     const clearInput = () => {
         setEmail('');
         setPassword('');
         setDisplayName('');
     }
 
-    // clear all errors
+    /* clear all errors */
     const clearError = () => {
         setEmailError('');
         setPasswordError('');
         setDisplayNameError('');
     }
 
-    // switch login and sign up components
+    /* switch login and sign up components */
     const handleSwitch = () => {
         clearInput();
         clearError();
         setLogIn(!logIn);
     }
 
-    // handle sign in
+    /* handle sign in */
     const handleSignIn = useCallback(
         async (event) => {
             event.preventDefault();
@@ -47,9 +47,6 @@ function LogLanding () {
             setLoading(true);
             await authentication
                 .signInWithEmailAndPassword(email, password)
-                .then(
-
-                )
                 .catch((error) => {
                     switch (error.code){
                         case "auth/invalid-email":
@@ -73,12 +70,14 @@ function LogLanding () {
                     }
                 });
 
-            // navigate to home page
-            browserHistory.push('/');
-        },[browserHistory, email, password]
+            /* navigate to home page */
+            if(email.length > 3){
+                browserHistory.push('/');
+            }
+        },[]
     );
 
-    // handle sign up
+    /* handle sign up */
     const handleSignUp = useCallback(
         async (event) => {
             event.preventDefault();
@@ -112,9 +111,11 @@ function LogLanding () {
                 }
             });
 
-            // navigate to home page
-            browserHistory.push('/');
-        }, [browserHistory, displayName, email, password]
+            /* navigate to home page */
+            if(email.length > 3){
+                browserHistory.push('/');
+            }
+        }, []
     );
 
 

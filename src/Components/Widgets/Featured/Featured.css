@@ -1,0 +1,23 @@
+.slider-container {
+    height: auto;
+    width: auto;
+    padding: 40px;
+}
+
+.section-title{
+    padding: 15px;
+    color: #b6081f;
+    font-size: 22px;
+}
+
+
+.slick-prev:before,
+.slick-next:before {
+    color: #000116;
+}
+
+.section-title{
+    padding: 15px;
+    color: #b6081f;
+    font-size: 22px;
+}

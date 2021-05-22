@@ -3,13 +3,13 @@ import EventItems from './EventItem';
 import {
     AllEvents,
     Conference,
-    Education,
+    Education, Featured,
     Festival,
     FreeEvents,
     Funeral,
     Health,
     MusicEvents,
-    Party,
+    Party, Popular,
     Today,
     Wedding,
     WeekEnd,
@@ -18,6 +18,7 @@ import './Events.css';
 
 
 function Events() {
+    const [activeIndex, setActiveIndex] = useState(0);
     const [allEvents, setAllEvents] = useState(true);
     const [today, setToday] = useState(false);
     const [weekEnd, setWeekEnd] = useState(false);
@@ -271,27 +272,40 @@ function Events() {
                                 EventItems.map((item, index) => {
                                     return (
 
-                                        <li className="event-item" key={index} onClick={() => handleOnClick(index)}>
-                                            <p className={item.cName}>{item.title}</p>
+                                        <li
+                                            key={index}
+                                            className="event-item"
+                                            onClick={() => {
+                                                setActiveIndex(index);
+                                                handleOnClick(index)
+                                            }}
+                                        >
+                                            <p
+                                                className={index === activeIndex ? `${item.cName} active-event` : item.cName}
+                                            >
+                                                {item.title}
+                                            </p>
                                         </li>
                                     );
                                 })
                             }
                         </ul>
                     </nav>
+                    <Popular title="Popular Events"/>
+                    <Featured title="Featured Events"/>
                 </div>
-                {allEvents && <AllEvents/>}
-                {today && <Today/>}
-                {weekEnd && <WeekEnd />}
-                {party && <Party />}
-                {wedding && <Wedding />}
-                {funeral && <Funeral />}
-                {festival && <Festival />}
-                {conference && <Conference />}
-                {musicEvents && <MusicEvents />}
-                {education && <Education />}
-                {health && <Health />}
-                {freeEvents && <FreeEvents />}
+                {allEvents && <AllEvents title="All"/>}
+                {today && <Today title="Today"/>}
+                {weekEnd && <WeekEnd title="Weekend"/>}
+                {party && <Party title="Parties and Celebrations"/>}
+                {wedding && <Wedding title="Weddings and Engagements"/>}
+                {funeral && <Funeral title="Funerals"/>}
+                {festival && <Festival title="Festivals"/>}
+                {conference && <Conference title="Conferences"/>}
+                {musicEvents && <MusicEvents title="Music"/>}
+                {education && <Education title="Education"/>}
+                {health && <Health title="Health and Wellness"/>}
+                {freeEvents && <FreeEvents title="Free"/>}
             </div>
         </>
     )

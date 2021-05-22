@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {Button, Dropdown, MenuItems, SearchBar} from '../index';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import FiberSmartRecordIcon from '@material-ui/icons/FiberSmartRecord';
-import {IconButton} from "@material-ui/core";
 import {UserContext} from "../../Provider/UserProvider";
 import './styles/Navbar.css';
 import UserInfo from "./UserInfo";
@@ -16,19 +15,6 @@ function Navbar() {
     const [userDropdown, setUserDropdown] = useState(false);
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
-
-    const styles = {
-        largeIcon: {
-            width: 120,
-            height: 120,
-        },
-
-        mediumIcon: {
-            width: 60,
-            height: 60,
-        },
-
-    };
 
     const handleUserIconClick = () => {
 

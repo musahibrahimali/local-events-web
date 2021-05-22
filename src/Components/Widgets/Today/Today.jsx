@@ -4,7 +4,7 @@ import {EventCard} from "../WidgetExport";
 import {Image1, Image3, Image4, Image5, Image6} from "../../../assets/AssetExport";
 import {database} from "../../../Utils/firebase";
 
-function Today() {
+function Today({title}) {
 
     const [loading, setLoading] = useState(true);
 
@@ -27,6 +27,9 @@ function Today() {
 
     return (
         <>
+            <div className="section-title">
+                <h2> {title}</h2>
+            </div>
             <div className="today-events-container">
 
                 <EventCard

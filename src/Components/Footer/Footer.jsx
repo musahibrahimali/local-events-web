@@ -1,20 +1,10 @@
 import React from 'react';
 import { Button, Home } from '../index';
 import FiberSmartRecordIcon from '@material-ui/icons/FiberSmartRecord';
-import {IconButton} from "@material-ui/core";
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
 function Footer() {
-
-    const styles = {
-
-        mediumIcon: {
-            width: 60,
-            height: 60,
-        },
-
-    };
 
     return (
         <>
@@ -77,11 +67,7 @@ function Footer() {
                     <div className='social-media-wrap'>
                         <div className='footer-logo'>
                             <Link to='/' className='social-logo'>
-                                Smart Events
-                                <IconButton iconStyle={styles.mediumIcon}>
-                                    <FiberSmartRecordIcon className="logo-icon" />
-                                </IconButton>
-
+                                Smart Events <FiberSmartRecordIcon className="footer-logo-icon" />
                             </Link>
                         </div>
                         <small className='website-rights'>Smart Events © {new Date().getFullYear()}</small>

@@ -7,6 +7,12 @@
     padding: 10px;
 }
 
+.section-title{
+    padding: 15px;
+    color: #b6081f;
+    font-size: 22px;
+}
+
 @media screen and (max-width: 768px){
     .all-events-container {
         display: grid;

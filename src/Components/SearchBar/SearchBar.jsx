@@ -1,5 +1,4 @@
-import { React } from 'react';
-import SearchIcon from '@material-ui/icons/Search';
+import React from 'react';
 import './SearchBar.css';
 
 function SearchBar() {
