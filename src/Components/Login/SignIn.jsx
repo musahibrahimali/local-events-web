@@ -14,6 +14,7 @@ function SignIn(props){
         passwordError,
         setPasswordError,
         handleSignIn,
+        handleSwitch,
     } = props;
 
     const handleEmailOnChange = (event) => {
@@ -70,6 +71,10 @@ function SignIn(props){
                 <button className="btn-log" onClick={handleSignIn}>
                     Sign In
                 </button>
+
+                <p className="btn-log-reg" onClick={handleSwitch}>
+                   Don't have an account? <span className="register-text">Register</span>
+                </p>
             </div>
         </div>
     );

@@ -18,6 +18,7 @@ function SignUp(props) {
         displayNameError,
         setDisplayNameError,
         handleSignUp,
+        handleSwitch,
     } = props;
 
     const handleDisplayNameOnChange = (event) => {
@@ -91,6 +92,10 @@ function SignUp(props) {
                 <button onClick={handleSignUp} className="btn-log">
                     Sign Up
                 </button>
+
+                <p className="btn-log-reg" onClick={handleSwitch}>
+                    Don't have an account ? <span className="register-text">Register</span>
+                </p>
             </div>
         </div>
     );

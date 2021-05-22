@@ -121,48 +121,56 @@ function LogLanding () {
     return (
         <>
             <div className="App">
-                {loading && <LoadAnimation /> }
-                <div className="login">
-                    <div className="container">
-                        {logIn && (
-                            <SignIn
-                                email={email}
-                                setEmail={setEmail}
-                                password={password}
-                                setPassword={setPassword}
-                                emailError={emailError}
-                                setEmailError={setEmailError}
-                                passwordError={passwordError}
-                                setPasswordError={setPasswordError}
-                                handleSignIn={handleSignIn}
+                {
+                    loading ?
+                        <LoadAnimation /> :
+                        <div className="login">
+                            <div className="container">
+                                {logIn && (
+                                    <SignIn
+                                        email={email}
+                                        setEmail={setEmail}
+                                        password={password}
+                                        setPassword={setPassword}
+                                        emailError={emailError}
+                                        setEmailError={setEmailError}
+                                        passwordError={passwordError}
+                                        setPasswordError={setPasswordError}
+                                        handleSignIn={handleSignIn}
+                                        handleSwitch={handleSwitch}
+                                        onClick={handleSwitch}
+                                    />
+                                )}
+                                {!logIn && (
+                                    <SignUp
+                                        displayName={displayName}
+                                        setDisplayName={setDisplayName}
+                                        email={email}
+                                        setEmail={setEmail}
+                                        password={password}
+                                        setPassword={setPassword}
+                                        emailError={emailError}
+                                        setEmailError={setEmailError}
+                                        passwordError={passwordError}
+                                        setPasswordError={setPasswordError}
+                                        displayNameError={displayNameError}
+                                        setDisplayNameError={setDisplayNameError}
+                                        handleSignUp={handleSignUp}
+                                        handleSwitch={handleSwitch}
+                                        onClick={handleSwitch}
+                                    />
+                                )}
+                            </div>
+
+
+                            <RightSide
+                                className={logIn ? "right-side right" : "right-side left"}
+                                currentActive={logIn ? "REGISTER" : "LOG IN"}
                                 onClick={handleSwitch}
                             />
-                        )}
-                        {!logIn && (
-                            <SignUp
-                                displayName={displayName}
-                                setDisplayName={setDisplayName}
-                                email={email}
-                                setEmail={setEmail}
-                                password={password}
-                                setPassword={setPassword}
-                                emailError={emailError}
-                                setEmailError={setEmailError}
-                                passwordError={passwordError}
-                                setPasswordError={setPasswordError}
-                                displayNameError={displayNameError}
-                                setDisplayNameError={setDisplayNameError}
-                                handleSignUp={handleSignUp}
-                                onClick={handleSwitch}
-                            />
-                        )}
+
                     </div>
-                    <RightSide
-                        className={logIn ? "right-side right" : "right-side left"}
-                        currentActive={logIn ? "REGISTER" : "LOG IN"}
-                        onClick={handleSwitch}
-                    />
-                </div>
+                }
             </div>
             <Footer />
         </>
@@ -171,10 +179,7 @@ function LogLanding () {
 
 const RightSide = (props) => {
     return (
-        <div
-            className={props.className}
-            onClick={props.onClick}
-        >
+        <div className={props.className} onClick={props.onClick}>
             <div className="inner-container">
                 <div className="text">{props.currentActive}</div>
             </div>

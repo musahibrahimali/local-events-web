@@ -40,8 +40,8 @@
     flex-direction: column;
     justify-content: center;
     height: 90%;
-    background-color: rgba(247, 98, 60, 1);
     width: 100%;
+    background-color: rgba(247, 98, 60, 1);
     position: absolute;
     right: -34%;
     border-radius: 6px;
@@ -110,6 +110,22 @@
     margin-top: 0;
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 520px){
+
+    .App{
+       margin: 10px;
+    }
+
+    .login{
+        width: 23em;
+    }
+
+    .login .container{
+        padding: 15px 8px;
+    }
+
+    .login .right-side{
+        display: none;
+    }
 
 }
